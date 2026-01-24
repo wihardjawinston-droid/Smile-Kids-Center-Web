@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1>hello welcome!</h1>
+  <h1>hello nama saya winston</h1>
   <p>
     Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
     documentation
