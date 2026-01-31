@@ -34,6 +34,29 @@ const highlights = [
   { icon: '🚗', text: 'SOP antar-jemput yang ketat' },
   { icon: '🏥', text: 'Tim kesehatan siaga' }
 ]
+
+const galleryImages = [
+  {
+    src: new URL('@/assets/gallery/classroom.jpg', import.meta.url).href,
+    title: 'Classroom'
+  },
+  {
+    src: new URL('@/assets/gallery/4th-floor-1.jpg', import.meta.url).href,
+    title: '4th Floor'
+  },
+  {
+    src: new URL('@/assets/gallery/2nd-3rd-floor.jpg', import.meta.url).href,
+    title: '2nd & 3rd Floor'
+  },
+  {
+    src: new URL('@/assets/gallery/4th-floor-2.jpg', import.meta.url).href,
+    title: '4th Floor'
+  },
+  {
+    src: new URL('@/assets/gallery/4th-floor-3.jpg', import.meta.url).href,
+    title: '4th Floor'
+  }
+]
 </script>
 
 <template>
@@ -140,8 +163,11 @@ const highlights = [
           subtitle="Intip kegiatan dan lingkungan belajar di Smile Kids Center"
         />
         <div class="gallery-grid">
-          <div v-for="n in 6" :key="n" class="gallery-item">
-            <div class="gallery-placeholder">📷</div>
+          <div v-for="(image, index) in galleryImages" :key="index" class="gallery-item">
+            <img :src="image.src" :alt="image.title" class="gallery-image" />
+            <div class="gallery-overlay">
+              <span class="gallery-title">{{ image.title }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -339,14 +365,47 @@ const highlights = [
   aspect-ratio: 4/3;
   background-color: var(--color-neutral-100);
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-base);
 }
 
-.gallery-placeholder {
-  font-size: 48px;
-  opacity: 0.3;
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: var(--space-4);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-title {
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
 }
 
 /* Responsive */

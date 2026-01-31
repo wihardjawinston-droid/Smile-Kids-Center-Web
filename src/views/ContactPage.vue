@@ -283,11 +283,15 @@ const ageOptions = [
           subtitle="Kunjungi kami di alamat berikut"
         />
         <div class="map-wrapper">
-          <div class="map-placeholder">
-            <span class="map-icon">🗺️</span>
-            <p>Google Maps Embed</p>
-            <p class="map-address">{{ siteConfig.address }}</p>
-          </div>
+          <iframe 
+            :src="siteConfig.mapEmbedUrl"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </section>

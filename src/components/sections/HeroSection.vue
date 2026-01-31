@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { siteConfig, getWhatsAppLink } from '@/data/siteConfig'
+import heroLearningImg from '@/assets/hero-learning.jpg'
 </script>
 
 <template>
@@ -63,10 +64,11 @@ import { siteConfig, getWhatsAppLink } from '@/data/siteConfig'
       </div>
       <div class="hero-visual">
         <div class="hero-image-wrapper">
-          <div class="hero-image-placeholder">
-            <span class="placeholder-emoji">👨‍👩‍👧‍👦</span>
-            <span class="placeholder-text">Foto Anak-anak Belajar</span>
-          </div>
+          <img 
+            :src="heroLearningImg" 
+            alt="Anak belajar bersama guru di Smile Kids Center"
+            class="hero-image"
+          />
         </div>
         <div class="floating-badge badge-1">🎨 Kreatif</div>
         <div class="floating-badge badge-2">📚 Edukatif</div>
@@ -192,6 +194,12 @@ import { siteConfig, getWhatsAppLink } from '@/data/siteConfig'
   overflow: hidden;
   box-shadow: var(--shadow-2xl);
   background: linear-gradient(135deg, var(--color-primary-100), var(--color-secondary-100));
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-image-placeholder {
