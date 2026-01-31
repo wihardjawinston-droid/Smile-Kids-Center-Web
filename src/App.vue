@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import { RouterView } from 'vue-router'
+import TheNavbar from '@/components/layout/TheNavbar.vue'
+import TheFooter from '@/components/layout/TheFooter.vue'
+import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp.vue'
+</script>
 
 <template>
-  <h1>hello nama saya winston</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <TheNavbar />
+    <RouterView />
+    <TheFooter />
+    <FloatingWhatsApp />
+  </div>
 </template>
 
-<style scoped></style>
+<style>
+@import '@/assets/styles/global.css';
+</style>
