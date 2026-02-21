@@ -24,7 +24,7 @@ import { facilities } from '@/data/facilities'
             class="facility-card"
           >
             <div class="facility-image">
-              <span class="facility-icon">{{ facility.icon }}</span>
+              <img :src="facility.image" :alt="facility.name" class="facility-img" />
             </div>
             <div class="facility-info">
               <h3 class="facility-name">{{ facility.name }}</h3>
@@ -113,15 +113,19 @@ import { facilities } from '@/data/facilities'
 }
 
 .facility-image {
-  height: 160px;
-  background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 200px;
+  overflow: hidden;
 }
 
-.facility-icon {
-  font-size: 64px;
+.facility-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.facility-card:hover .facility-img {
+  transform: scale(1.05);
 }
 
 .facility-info {

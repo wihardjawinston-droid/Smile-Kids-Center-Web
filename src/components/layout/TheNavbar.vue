@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { siteConfig, getWhatsAppLink } from '@/data/siteConfig'
+import logoImg from '@/assets/logo-smilekids.png'
 
 const route = useRoute()
 const isMenuOpen = ref(false)
@@ -36,7 +37,7 @@ const isActive = (path) => {
     <div class="container navbar-container">
       <!-- Logo -->
       <RouterLink to="/" class="navbar-logo" @click="closeMenu">
-        <span class="logo-icon">🌟</span>
+        <img :src="logoImg" alt="SmileKids Logo" class="logo-icon" />
         <span class="logo-text">{{ siteConfig.schoolName }}</span>
       </RouterLink>
 
@@ -140,7 +141,9 @@ const isActive = (path) => {
 }
 
 .logo-icon {
-  font-size: var(--text-2xl);
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo-text {

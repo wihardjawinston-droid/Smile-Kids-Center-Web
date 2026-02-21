@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { siteConfig, getWhatsAppLink, getPhoneLink, getEmailLink } from '@/data/siteConfig'
+import logoImg from '@/assets/logo-smilekids.png'
 
 const currentYear = new Date().getFullYear()
 
@@ -21,7 +22,7 @@ const quickLinks = [
         <!-- School Info -->
         <div class="footer-section">
           <div class="footer-logo">
-            <span class="logo-icon">🌟</span>
+            <img :src="logoImg" alt="SmileKids Logo" class="logo-icon" />
             <span class="logo-text">{{ siteConfig.schoolName }}</span>
           </div>
           <p class="footer-description">
@@ -152,7 +153,9 @@ const quickLinks = [
 }
 
 .logo-icon {
-  font-size: var(--text-2xl);
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo-text {

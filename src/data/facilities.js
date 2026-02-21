@@ -18,8 +18,8 @@ export const facilities = [
   },
   {
     id: 3,
-    name: 'Playground Outdoor',
-    description: 'Taman bermain outdoor dengan ayunan, perosotan, dan area pasir yang terawat.',
+    name: 'Ruang Konseling',
+    description: 'Ruang konseling yang nyaman untuk sesi konsultasi antara guru, orang tua, dan siswa.',
     icon: '🌳',
     image: '/images/facility-outdoor-play.jpg'
   },
@@ -32,29 +32,29 @@ export const facilities = [
   },
   {
     id: 5,
-    name: 'Ruang Seni',
-    description: 'Studio seni dengan perlengkapan lengkap untuk aktivitas melukis, kerajinan, dan kreativitas.',
+    name: 'Lantai 2 dan 3',
+    description: 'Area lantai 2 dan 3 yang bersih dan nyaman dengan dekorasi ramah anak.',
     icon: '🎨',
     image: '/images/facility-art.jpg'
   },
   {
     id: 6,
-    name: 'Perpustakaan Mini',
-    description: 'Koleksi buku anak yang lengkap untuk menumbuhkan minat baca sejak dini.',
+    name: 'Ruang Lorong',
+    description: 'Lorong yang bersih dan nyaman dengan dekorasi menarik serta area duduk.',
     icon: '📚',
     image: '/images/facility-library.jpg'
   },
   {
     id: 7,
-    name: 'Ruang Tidur/Rest Area',
-    description: 'Ruang istirahat yang nyaman untuk tidur siang anak dengan kasur individual.',
+    name: 'Ruang Tunggu',
+    description: 'Ruang tunggu yang nyaman dengan sofa untuk orang tua dan pengunjung.',
     icon: '🛏️',
     image: '/images/facility-rest.jpg'
   },
   {
     id: 8,
-    name: 'Dapur Bersih',
-    description: 'Dapur higienis dengan menu makanan bergizi yang disiapkan oleh chef berpengalaman.',
+    name: 'Ruang Therapy',
+    description: 'Ruang therapy yang dilengkapi peralatan untuk mendukung perkembangan anak.',
     icon: '🍽️',
     image: '/images/facility-kitchen.jpg'
   },

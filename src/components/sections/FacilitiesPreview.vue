@@ -22,7 +22,7 @@ const featuredFacilities = facilities.slice(0, 6)
           class="facility-card"
         >
           <div class="facility-image">
-            <span class="facility-icon">{{ facility.icon }}</span>
+            <img :src="facility.image" :alt="facility.name" class="facility-img" />
           </div>
           <div class="facility-info">
             <h3 class="facility-name">{{ facility.name }}</h3>
@@ -67,17 +67,21 @@ const featuredFacilities = facilities.slice(0, 6)
 
 .facility-image {
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-primary-100);
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
   border-radius: var(--radius-lg);
 }
 
-.facility-icon {
-  font-size: 32px;
+.facility-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.facility-card:hover .facility-img {
+  transform: scale(1.1);
 }
 
 .facility-info {
