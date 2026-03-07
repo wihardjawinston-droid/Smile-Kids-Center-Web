@@ -31,11 +31,8 @@ const whatsappLink = computed(() => {
           <RouterLink to="/program" class="back-link">← Kembali ke Daftar Program</RouterLink>
           <div class="hero-content">
             <div class="hero-info">
-              <span class="age-badge" :style="{ backgroundColor: program.color }">
-                {{ program.ageRange }}
-              </span>
               <h1 class="program-title">{{ program.name }}</h1>
-              <p class="program-schedule">📅 {{ program.schedule }}</p>
+              <p class="program-subtitle">{{ program.subtitle }}</p>
               <p class="program-desc">{{ program.fullDesc }}</p>
               <div class="hero-cta">
                 <a
@@ -58,7 +55,8 @@ const whatsappLink = computed(() => {
             </div>
             <div class="hero-visual">
               <div class="program-image" :style="{ backgroundColor: program.color + '30' }">
-                <span class="program-icon" :style="{ color: program.color }">
+                <img v-if="program.image" :src="program.image" :alt="program.name" class="program-hero-img" />
+                <span v-else class="program-icon" :style="{ color: program.color }">
                   {{ program.name.charAt(0) }}
                 </span>
               </div>
@@ -94,44 +92,7 @@ const whatsappLink = computed(() => {
         </div>
       </section>
 
-      <!-- Schedule Info -->
-      <section class="schedule-section section bg-light">
-        <div class="container">
-          <div class="schedule-card">
-            <h2 class="detail-title">📆 Jadwal & Informasi</h2>
-            <div class="info-grid">
-              <div class="info-item">
-                <span class="info-icon">👶</span>
-                <div>
-                  <span class="info-label">Usia</span>
-                  <span class="info-value">{{ program.ageRange }}</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="info-icon">🕐</span>
-                <div>
-                  <span class="info-label">Jadwal</span>
-                  <span class="info-value">{{ program.schedule }}</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="info-icon">👨‍👩‍👧</span>
-                <div>
-                  <span class="info-label">Rasio Guru</span>
-                  <span class="info-value">1 : 5</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="info-icon">🍎</span>
-                <div>
-                  <span class="info-label">Snack</span>
-                  <span class="info-value">Termasuk</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <!-- Bottom CTA -->
       <section class="bottom-cta section">
@@ -176,7 +137,7 @@ const whatsappLink = computed(() => {
                   {{ prog.name.charAt(0) }}
                 </div>
                 <h3>{{ prog.name }}</h3>
-                <p>{{ prog.ageRange }}</p>
+                <p>{{ prog.subtitle }}</p>
               </RouterLink>
             </div>
           </div>
@@ -223,26 +184,17 @@ const whatsappLink = computed(() => {
   align-items: center;
 }
 
-.age-badge {
-  display: inline-block;
-  padding: var(--space-1) var(--space-4);
-  border-radius: var(--radius-full);
-  color: white;
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  margin-bottom: var(--space-3);
-}
-
 .program-title {
   font-size: var(--text-4xl);
   font-weight: var(--font-bold);
   margin-bottom: var(--space-2);
 }
 
-.program-schedule {
+.program-subtitle {
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-4);
+  font-style: italic;
 }
 
 .program-desc {
@@ -269,6 +221,13 @@ const whatsappLink = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.program-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .program-icon {
@@ -314,41 +273,7 @@ const whatsappLink = computed(() => {
   font-weight: var(--font-bold);
 }
 
-/* Schedule */
-.schedule-card {
-  background-color: var(--color-bg-primary);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-}
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  margin-top: var(--space-6);
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.info-icon {
-  font-size: 32px;
-}
-
-.info-label {
-  display: block;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-}
-
-.info-value {
-  display: block;
-  font-weight: var(--font-semibold);
-}
 
 /* Bottom CTA */
 .cta-card {
@@ -458,9 +383,7 @@ const whatsappLink = computed(() => {
     grid-template-columns: 1fr;
   }
 
-  .info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -477,9 +400,7 @@ const whatsappLink = computed(() => {
     align-items: stretch;
   }
 
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
+
 
   .cta-buttons {
     flex-direction: column;

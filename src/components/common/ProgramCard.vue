@@ -15,14 +15,14 @@ const whatsappLink = getWhatsAppLink(siteConfig.whatsappMessages.program(props.p
 <template>
   <article class="program-card">
     <div class="card-image" :style="{ backgroundColor: program.color + '20' }">
-      <div class="age-badge">{{ program.ageRange }}</div>
-      <span class="program-icon" :style="{ backgroundColor: program.color }">
+      <img v-if="program.image" :src="program.image" :alt="program.name" class="program-img" />
+      <span v-else class="program-icon" :style="{ backgroundColor: program.color }">
         {{ program.name.charAt(0) }}
       </span>
     </div>
     <div class="card-body">
       <h3 class="card-title">{{ program.name }}</h3>
-      <p class="card-schedule">📅 {{ program.schedule }}</p>
+      <p class="card-subtitle">{{ program.subtitle }}</p>
       <p class="card-desc">{{ program.shortDesc }}</p>
       <div class="card-actions">
         <RouterLink :to="`/program/${program.slug}`" class="btn btn-primary btn-sm">
@@ -51,25 +51,20 @@ const whatsappLink = getWhatsAppLink(siteConfig.whatsappMessages.program(props.p
 }
 
 .card-image {
-  height: 160px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
-.age-badge {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  background-color: var(--color-bg-primary);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-secondary);
-  box-shadow: var(--shadow-sm);
+.program-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 
 .program-icon {
   width: 80px;
@@ -94,7 +89,7 @@ const whatsappLink = getWhatsAppLink(siteConfig.whatsappMessages.program(props.p
   margin-bottom: var(--space-2);
 }
 
-.card-schedule {
+.card-subtitle {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-3);

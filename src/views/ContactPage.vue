@@ -232,7 +232,7 @@ const ageOptions = [
                   >
                     <option value="">Pilih program</option>
                     <option v-for="prog in programs" :key="prog.id" :value="prog.name">
-                      {{ prog.name }} ({{ prog.ageRange }})
+                      {{ prog.name }}
                     </option>
                   </select>
                   <span v-if="errors.program" class="error-text">{{ errors.program }}</span>
